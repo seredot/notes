@@ -2,7 +2,7 @@ import React from "react";
 import { AppRegistry } from "react-native";
 import { createStackNavigator } from "react-navigation";
 import NoteListContainer from "./app/components/noteListContainer";
-import NoteEditor from "./app/components/noteEditor";
+import NoteEditorContainer from "./app/components/noteEditorContainer";
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
@@ -25,7 +25,7 @@ let persistor = persistStore(store);
 const AppNavigator = createStackNavigator(
 	{
 		NoteListContainer: { screen: NoteListContainer },
-		NoteEditor: { screen: NoteEditor }
+		NoteEditorContainer: { screen: NoteEditorContainer }
 	},
 	{
 		initialRouteName: "NoteListContainer"

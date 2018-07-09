@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing NoteEditor component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "flex": 1,
+      "paddingVertical": 6,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    multiline={true}
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#fff",
+        "color": "#333",
+        "flex": 1,
+        "fontSize": 16,
+        "paddingHorizontal": 12,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

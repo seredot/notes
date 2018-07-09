@@ -2,6 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import styles from "./noteItemStyles";
 import Swipeout from "react-native-swipeout";
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const EMPTY_HEART = <View style={styles.swipeButton}><Icon name={"heart"} size={30} color={"#00000066"} /></View>
+const FULL_HEART = <View style={styles.swipeButton}><Icon name="heart" size={30} color={"#333"} /></View>
+const TRASH = <View style={styles.swipeButton}><Icon name="trash" size={30} color={"#333"} /></View>
 
 export default class NoteItem extends React.Component {
   constructor(props) {
@@ -9,7 +14,7 @@ export default class NoteItem extends React.Component {
 
     this.leftButtons = [
       {
-        text: "🖤",
+        component: EMPTY_HEART,
         backgroundColor: "#F2EB61",
         onPress: this.onFavoriteButtonPressed
       }
@@ -17,7 +22,7 @@ export default class NoteItem extends React.Component {
 
     this.rightButtons = [
       {
-        text: "🗑",
+        component: TRASH,
         backgroundColor: "#F2EB61",
         onPress: this.deleteButtonPressed
       }
@@ -33,8 +38,8 @@ export default class NoteItem extends React.Component {
   };
 
   updateLeftButton = () => {
-    let favorite = this.props.favorite ? "💙" : "🖤";
-    this.leftButtons[0].text = favorite;
+    let favorite = this.props.favorite ? FULL_HEART : EMPTY_HEART;
+    this.leftButtons[0].component = favorite;
   };
 
   render() {

@@ -6,12 +6,14 @@
     "ios": "react-native run-ios --simulator=\"iPhone X\"",
     "android": "react-native run-android",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "flow": "flow"
   },
   "dependencies": {
     "react": "^16.4.1",
     "react-native": "^0.56.0",
     "react-native-swipeout": "^2.3.3",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.5.5",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "babel-jest": "23.2.0",
     "babel-preset-react-native": "^4.0.0",
+    "flow-bin": "^0.67.1",
     "jest": "^23.3.0",
     "react-test-renderer": "16.3.1"
   },

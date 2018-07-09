@@ -2,9 +2,13 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
 	item: {
-		backgroundColor: "#F2EB61",
+		backgroundColor: "#F2EB61"
 	},
-	swipeOut: {
+	swipeOut: {},
+	swipeButton: {
+		paddingHorizontal: 22,
+		justifyContent: "center",
+		flex: 1,
 	},
 	text: {
 		backgroundColor: "#fff",

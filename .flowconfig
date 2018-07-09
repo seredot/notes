@@ -52,3 +52,6 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 [version]
 ^0.67.0
+
+[untyped]
+.*/node_modules/react-native

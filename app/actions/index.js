@@ -1,8 +1,6 @@
-import uuid from '../utils/uuid';
-
-export const addNote = text => ({
+export const addNote = (id, text) => ({
   type: 'ADD_NOTE',
-  id: uuid(),
+  id: id,
   text: text
 })
 

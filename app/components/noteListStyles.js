@@ -13,4 +13,8 @@ export default StyleSheet.create({
 		alignSelf: "stretch",
 		paddingBottom: 8,
 	},
+	navButton: {
+		paddingHorizontal: 10,
+		color: "#333",
+	}
 });

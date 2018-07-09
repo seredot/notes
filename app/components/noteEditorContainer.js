@@ -3,6 +3,7 @@ import NoteEditor from "./noteEditor";
 
 import { addNote, updateNote } from "../actions";
 import { connect } from "react-redux";
+import uuid from '../utils/uuid';
 
 class NoteEditorContainer extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -22,7 +23,7 @@ class NoteEditorContainer extends React.Component {
   componentWillUnmount() {
     if (this.props.editingNoteId === null) {
       if (this.state.text.trim().length > 0)
-        this.props.addNote(this.state.text);
+        this.props.addNote(uuid(), this.state.text);
     } else {
       this.props.updateNote(this.props.editingNoteId, this.state.text);
     }
@@ -52,7 +53,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addNote: text => dispatch(addNote(text)),
+  addNote: (id, text) => dispatch(addNote(id, text)),
   updateNote: (id, text) => dispatch(updateNote(id, text))
 });
 

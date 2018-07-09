@@ -5,7 +5,7 @@ import {
   Text,
   View,
   Button,
-  AlertIOS
+  TouchableHighlight, 
 } from "react-native";
 import NoteList from "./noteList";
 import {
@@ -17,32 +17,47 @@ import {
 } from "../actions";
 import { connect } from "react-redux";
 import { Filters } from "../actions";
+import styles from "./noteListStyles";
 
 type Props = {};
 class NoteListContainer extends Component<Props> {
   static navigationOptions = ({ navigation }) => {
     let leftButtonTitle = navigation.getParam("filterButtonTitle");
-    if (leftButtonTitle === undefined)
-      leftButtonTitle = "Default";
+    if (leftButtonTitle === undefined) leftButtonTitle = "Default";
+
     return {
       headerTitle: "Notes",
+      headerTitleStyle: Platform.select({
+      ios: {
+      },
+      android: {
+        flex: 1,
+        alignSelf: "stretch",
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlignVertical: 'center',
+        textAlign: "center",
+      },
+    }),
       headerLeft: (
-        <Button
+        <Text
+          style={styles.navButton}
           onPress={() => {
             navigation.getParam("toggleFavoriteFilter")();
           }}
-          title={leftButtonTitle}
-          color="#333"
-        />
+        >
+          {leftButtonTitle}
+        </Text>
       ),
       headerRight: (
-        <Button
+        <Text
+          style={styles.navButton}
           onPress={() => {
             navigation.getParam("addButtonPressed")();
           }}
-          title="➕"
-          color="#333"
-        />
+        >
+          {"New"}
+        </Text>
       )
     };
   };
@@ -55,7 +70,7 @@ class NoteListContainer extends Component<Props> {
     this.props.navigation.setParams({
       addButtonPressed: this.addButtonPressed,
       toggleFavoriteFilter: this.toggleFavoriteFilter,
-      filterButtonTitle: "Favorites",
+      filterButtonTitle: "Favorites"
     });
   }
 
@@ -119,7 +134,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addNote: () => dispatch(addNote()),
   deleteNote: noteId => dispatch(deleteNote(noteId)),
   toggleFavoriteNote: noteId => dispatch(toggleFavoriteNote(noteId)),
   editingNoteId: noteId => dispatch(editingNoteId(noteId)),

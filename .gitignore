@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Xcode
-ios/
+/ios/build/
 !**/*.xcodeproj
 !**/*.pbxproj
 !**/*.xcworkspacedata
@@ -54,12 +54,12 @@ buck-out
 .watchmanconfig
 
 # Android
-android/
 .idea
 .gradle
 local.properties
 *.iml
-/android/
+/android/build/
+/android/app/build/
 
 # Node
 node_modules
